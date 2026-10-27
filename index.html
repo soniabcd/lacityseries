@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Angeles City Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7F1E8;
+  --cream-deep: #EFE5D6;
+  --coral: #E2502A;
+  --coral-dark: #C13E1F;
+  --amber: #F2A93B;
+  --rose: #C03E5E;
+  --ink: #1A1310;
+  --ink-soft: #3A3028;
+  --warm-gray: #8B7D6F;
+  --line: rgba(26, 19, 16, 0.12);
+  --card: #FDFAF4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───── NAV ───── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(247, 241, 232, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+nav .brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+nav .brand span { color: var(--coral); }
+nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--coral); }
+@media (max-width: 640px) {
+  nav ul { display: none; }
+}
+
+/* ───── HERO ───── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 28px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -15%;
+  width: 60vw; height: 60vw;
+  max-width: 700px; max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(242, 169, 59, 0.35), rgba(226, 80, 42, 0.12) 50%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; left: -10%;
+  width: 50vw; height: 50vw;
+  max-width: 500px; max-height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(192, 62, 94, 0.2), transparent 65%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-tag .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(60px, 14vw, 200px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 .line2 {
+  display: block;
+  color: var(--coral);
+}
+.hero h1 .line3 {
+  display: block;
+  -webkit-text-stroke: 2px var(--ink);
+  color: transparent;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+  margin-top: 36px;
+  align-items: flex-end;
+}
+.hero-meta .meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-meta .meta-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--warm-gray);
+  font-weight: 500;
+}
+.hero-meta .meta-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.hero-cta {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--coral);
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.03em;
+}
+.btn-primary:hover {
+  background: var(--coral-dark);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* ───── SECTION HEADER ───── */
+.section {
+  padding: 80px 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.section-label .num {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  color: var(--coral);
+  letter-spacing: 0.05em;
+}
+.section-label .line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 60px;
+}
+.section-label .tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--warm-gray);
+  font-weight: 500;
+}
+.section h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.section .lede {
+  font-size: 16px;
+  color: var(--ink-soft);
+  max-width: 560px;
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+/* ───── SCHEDULE ───── */
+.schedule-section {
+  background: var(--cream-deep);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.schedule-section .section {
+  padding: 0 28px;
+}
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.day-tab {
+  padding: 10px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Sora', sans-serif;
+}
+.day-tab .day-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+}
+.day-tab.active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+.day-tab:hover:not(.active) {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.day-content { display: none; }
+.day-content.active { display: block; }
+
+.event-card {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--line);
+  transition: box-shadow 0.3s;
+}
+.event-card:hover {
+  box-shadow: 0 8px 40px rgba(26, 19, 16, 0.08);
+}
+.event-header {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.event-time {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 24px 28px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.event-time .time-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+.event-time .time-value {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.event-body {
+  flex: 1;
+  padding: 24px 28px;
+}
+.event-body h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.event-body .event-sub {
+  font-size: 14px;
+  color: var(--warm-gray);
+  margin-bottom: 14px;
+}
+.event-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--coral);
+  text-decoration: none;
+  padding: 6px 14px;
+  background: rgba(226, 80, 42, 0.08);
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+.event-link:hover {
+  background: rgba(226, 80, 42, 0.18);
+}
+
+.event-details {
+  padding: 0 28px 24px;
+}
+.tip-box {
+  background: rgba(242, 169, 59, 0.1);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.tip-box .tip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.tip-box .tip-icon {
+  font-size: 16px;
+}
+.tip-box .tip-from {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--coral);
+}
+.tip-box .tip-from a {
+  color: var(--coral);
+  text-decoration: none;
+}
+.tip-box .tip-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.video-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.video-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px;
+}
+.video-card a.video-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.video-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--warm-gray);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.video-card .tiktok-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.video-card .tiktok-embed:hover {
+  border-color: var(--coral);
+  box-shadow: 0 4px 20px rgba(226, 80, 42, 0.15);
+}
+.video-card .tiktok-embed a,
+.video-card .tiktok-embed section {
+  pointer-events: auto;
+}
+.video-card .tt-video-card {
+  border-radius: 12px;
+}
+
+.lunch-break {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: 1.5px dashed var(--line);
+  border-radius: 16px;
+}
+.lunch-break .lunch-icon {
+  font-size: 24px;
+}
+.lunch-break .lunch-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.lunch-break .lunch-time {
+  margin-left: auto;
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+}
+
+/* ───── CREATOR LOOKUP ───── */
+.lookup-section {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 100px 28px;
+}
+.lookup-section .section-label .num { color: var(--amber); }
+.lookup-section .section-label .line { background: rgba(247, 241, 232, 0.15); }
+.lookup-section .section-label .tag { color: rgba(247, 241, 232, 0.5); }
+.lookup-section h2 { color: var(--cream); }
+.lookup-section .lede { color: rgba(247, 241, 232, 0.7); }
+.lookup-wrap {
+  max-width: 600px;
+}
+.lookup-input-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.lookup-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: rgba(247, 241, 232, 0.08);
+  border: 1.5px solid rgba(247, 241, 232, 0.15);
+  border-radius: 100px;
+  color: var(--cream);
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.lookup-input::placeholder { color: rgba(247, 241, 232, 0.35); }
+.lookup-input:focus { border-color: var(--amber); }
+.lookup-btn {
+  padding: 16px 28px;
+  background: var(--amber);
+  color: var(--ink);
+  border: none;
+  border-radius: 100px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.lookup-btn:hover { background: #FFC04A; transform: translateY(-1px); }
+
+.lookup-result {
+  margin-top: 24px;
+  min-height: 80px;
+}
+.lookup-result .result-card {
+  background: rgba(247, 241, 232, 0.06);
+  border: 1px solid rgba(247, 241, 232, 0.12);
+  border-radius: 16px;
+  padding: 24px 28px;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.result-card .result-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.result-card .result-handle {
+  font-size: 14px;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+.result-card .result-handle a {
+  color: var(--amber);
+  text-decoration: none;
+}
+.result-days {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.result-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 24px;
+  border-radius: 14px;
+  min-width: 120px;
+}
+.result-day.attending {
+  background: rgba(242, 169, 59, 0.15);
+  border: 1px solid rgba(242, 169, 59, 0.4);
+}
+.result-day.not-attending {
+  background: rgba(247, 241, 232, 0.03);
+  border: 1px solid rgba(247, 241, 232, 0.08);
+  opacity: 0.45;
+}
+.result-day .day-label {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.result-day .day-status {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.result-day.attending .day-status { color: var(--amber); }
+.result-day .day-pois {
+  font-size: 11px;
+  color: rgba(247, 241, 232, 0.6);
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.result-not-found {
+  font-size: 15px;
+  color: rgba(247, 241, 232, 0.6);
+  padding: 20px;
+  background: rgba(247, 241, 232, 0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(247, 241, 232, 0.08);
+}
+.result-not-found strong { color: var(--cream); }
+
+.creator-count {
+  margin-top: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.count-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.count-stat .count-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--amber);
+  line-height: 1;
+}
+.count-stat .count-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(247, 241, 232, 0.5);
+}
+
+/* ───── BUDDY UP ───── */
+.buddy-section {
+  padding: 80px 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.buddy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.buddy-day-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+}
+.buddy-day-card .buddy-day-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.buddy-day-card .buddy-day-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--coral);
+  line-height: 1;
+}
+.buddy-day-card .buddy-day-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.buddy-day-card .buddy-day-pois {
+  font-size: 13px;
+  color: var(--warm-gray);
+  margin-bottom: 20px;
+}
+.buddy-creators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.buddy-creator {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(226, 80, 42, 0.06);
+  border: 1px solid rgba(226, 80, 42, 0.15);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.buddy-creator:hover {
+  background: rgba(226, 80, 42, 0.14);
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+/* ───── TIKTOK VIDEO CARD ───── */
+.tt-video-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.tt-video-card:hover {
+  border-color: var(--coral);
+  box-shadow: 0 4px 20px rgba(226, 80, 42, 0.15);
+  transform: translateY(-2px);
+}
+.tt-video-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.tt-thumb-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1310, #3a3028);
+}
+.tt-thumb-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(242, 169, 59, 0.12), transparent 60%);
+}
+.tt-thumb-bg::after {
+  content: 'TikTok';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+}
+.tt-video-thumb .tt-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 19, 16, 0.35);
+  transition: background 0.2s;
+  z-index: 2;
+}
+.tt-video-card:hover .tt-play-overlay {
+  background: rgba(26, 19, 16, 0.15);
+}
+.tt-play-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.tt-play-icon::after {
+  content: '';
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #1a1310;
+  margin-left: 4px;
+}
+.tt-video-footer {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: var(--cream);
+}
+.tt-video-footer .tt-creator {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cream);
+}
+.tt-video-footer .tt-tt-badge {
+  font-size: 11px;
+  color: rgba(247, 241, 232, 0.5);
+  letter-spacing: 0.04em;
+}
+.tt-video-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 3;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+  pointer-events: none;
+}
+.tt-video-frame {
+  display: none;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border: none;
+  border-radius: 0;
+  background: #000;
+}
+
+/* ───── CONTENT REQUIREMENTS ───── */
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.req-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.req-card .req-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.15;
+  position: absolute;
+  top: 20px; right: 24px;
+}
+.req-card .req-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+.req-card .req-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  position: relative;
+}
+.req-card .req-badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 12px;
+  background: rgba(226, 80, 42, 0.1);
+  color: var(--coral);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+}
+
+.req-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 16px;
+  margin-bottom: 60px;
+}
+.req-status-bar .status-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.req-status-bar .status-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.req-status-bar .status-text strong { font-weight: 700; }
+
+/* ───── BRANDING VIDEOS ───── */
+.branding-section {
+  padding: 80px 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.branding-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.branding-header {
+  padding: 32px 36px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.branding-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: var(--rose);
+  color: var(--cream);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.branding-header h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.branding-header .branding-sub {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.branding-body {
+  padding: 28px 36px 36px;
+}
+.branding-instructions {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.branding-instructions li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+}
+.branding-instructions li:last-child { border-bottom: none; }
+.branding-instructions li .check {
+  color: var(--coral);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.branding-instructions li strong { color: var(--ink); font-weight: 700; }
+
+.branding-videos-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--warm-gray);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.branding-videos {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.branding-videos .tt-video-card {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+.branding-videos .tiktok-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+/* ───── FOOTER ───── */
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 60px 28px 40px;
+  text-align: center;
+}
+footer .footer-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+footer .footer-brand span { color: var(--coral); }
+footer .footer-tagline {
+  font-size: 14px;
+  color: rgba(247, 241, 232, 0.5);
+  letter-spacing: 0.04em;
+}
+footer .footer-date {
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(247, 241, 232, 0.3);
+}
+
+/* ───── ANIMATIONS ───── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .event-time { min-width: 100%; }
+  .hero h1 { font-size: 18vw; }
+  .section { padding: 60px 20px; }
+  .branding-header, .branding-body { padding-left: 24px; padding-right: 24px; }
+  .req-card { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">LA <span>City</span> Series</div>
+  <ul>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#lookup">Find Your Days</a></li>
+    <li><a href="#buddy">Buddy-Up</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="dot"></span> TikTok Go City Series</div>
+    <h1>
+      <span class="line1">Los</span>
+      <span class="line2">Angeles</span>
+      <span class="line3">Series</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Dates</span>
+        <span class="meta-value">Nov 5 – 7, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Tasks Open</span>
+        <span class="meta-value">Nov 5</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#schedule" class="btn-primary">View Full Schedule</a>
+      <a href="#lookup" class="btn-ghost">Find Your Days</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<div class="schedule-section">
+  <section class="section" id="schedule">
+    <div class="section-label">
+      <span class="num">01</span>
+      <span class="line"></span>
+      <span class="tag">Full Schedule</span>
+    </div>
+    <h2>Three Days.<br>Five Locations.<br>One Series.</h2>
+    <p class="lede">From movie magic at Universal Studios to immersive art at Bubble Planet, from the Academy Museum to the Petersen Automotive Museum — here's your complete LA itinerary.</p>
+
+    <div class="day-tabs">
+      <div class="day-tab active" data-day="1"><span class="day-num">01</span> Nov 5 · Thu</div>
+      <div class="day-tab" data-day="2"><span class="day-num">02</span> Nov 6 · Fri</div>
+      <div class="day-tab" data-day="3"><span class="day-num">03</span> Nov 7 · Sat</div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-content active" data-day="1">
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-time">
+            <span class="time-label">Start</span>
+            <span class="time-value">11:00 AM</span>
+          </div>
+          <div class="event-body">
+            <h3>Universal Studios Hollywood</h3>
+            <p class="event-sub">Theme park & movie studio — rides, shows, studio tour</p>
+            <div class="event-links">
+              <a href="https://maps.app.goo.gl/waoDdS1cxV7RqFcU8" target="_blank" class="event-link">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-details">
+          <div class="tip-box">
+            <div class="tip-header">
+              <span class="tip-icon">💡</span>
+              <span class="tip-from">Creator tip from <a href="https://www.tiktok.com/@thecoasterfanman" target="_blank">@thecoasterfanman</a></span>
+            </div>
+            <p class="tip-text">Bring a small bag. The lockers for the Mummy and Harry Potter ride are TINY. Bring comfy shoes, a refillable water bottle, a portable battery, a portable fan (if you get hot easily — very little shade in the park), and some ear plugs (it gets very loud in some areas, and if you're sensitive to noise like me, it's a game changer).</p>
+          </div>
+          <div class="video-label">🎬 Top performing videos for inspiration</div>
+          <div class="video-row">
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@areonnaa/video/7695399227672792333" data-video-id="7695399227672792333" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@areonnaa/video/7695399227672792333">@areonnaa</a></section>
+              </blockquote>
+            </div>
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@charrtheexplorer/video/7700218081376832799" data-video-id="7700218081376832799" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@charrtheexplorer/video/7700218081376832799">@charrtheexplorer</a></section>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-content" data-day="2">
+      <div style="background: rgba(242, 169, 59, 0.08); border: 1px solid rgba(242, 169, 59, 0.25); border-radius: 12px; padding: 14px 20px; margin-bottom: 20px; font-size: 14px; color: var(--ink-soft); line-height: 1.5;">
+        <strong style="color: var(--coral);">Note:</strong> Not all creators are attending both POIs on Nov 6. Check the Buddy-Up section below to see who's going where.
+      </div>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-time">
+            <span class="time-label">Session</span>
+            <span class="time-value">12:30 – 2:30 PM</span>
+          </div>
+          <div class="event-body">
+            <h3>Bubble Planet: An Immersive Experience</h3>
+            <p class="event-sub">Los Angeles · Immersive art installation in DTLA</p>
+            <div class="event-links">
+              <a href="https://maps.app.goo.gl/qwr5ufowEPvszAU36" target="_blank" class="event-link">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-details">
+          <div class="tip-box">
+            <div class="tip-header">
+              <span class="tip-icon">💡</span>
+              <span class="tip-from">Creator tip from <a href="https://www.tiktok.com/@heraudacity2travel" target="_blank">@heraudacity2travel</a></span>
+            </div>
+            <p class="tip-text">FYI everyone — Bubble Planet is in DTLA and they do have a designated parking lot & street parking if you get lucky. Parking lot was $8 when I went. Also, you have to wear socks if you get in the ball pit.</p>
+          </div>
+          <div class="video-label">🎬 Top performing videos for inspiration</div>
+          <div class="video-row">
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sadein4k/video/7687828264424852749" data-video-id="7687828264424852749" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@sadein4k/video/7687828264424852749">@sadein4k</a></section>
+              </blockquote>
+            </div>
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shishaa0/video/7674461616368291086" data-video-id="7674461616368291086" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@shishaa0/video/7674461616368291086">@shishaa0</a></section>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-time">
+            <span class="time-label">Evening</span>
+            <span class="time-value">7:00 PM</span>
+          </div>
+          <div class="event-body">
+            <h3>Pirates Dinner Adventure</h3>
+            <p class="event-sub">Interactive dinner show — pirates, acrobatics, and a feast</p>
+            <div class="event-links">
+              <a href="https://maps.app.goo.gl/cXNpes1G2Yg59qCTA" target="_blank" class="event-link">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-details">
+          <div class="video-label">🎬 Top performing videos for inspiration</div>
+          <div class="video-row">
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiffanytravelsandtriesit/video/7696321060391669006" data-video-id="7696321060391669006" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@tiffanytravelsandtriesit/video/7696321060391669006">@tiffanytravelsandtriesit</a></section>
+              </blockquote>
+            </div>
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gowitholivias/video/7677851028817022222" data-video-id="7677851028817022222" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@gowitholivias/video/7677851028817022222">@gowitholivias</a></section>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-content" data-day="3">
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-time">
+            <span class="time-label">Morning</span>
+            <span class="time-value">10:00 AM – 12:00 PM</span>
+          </div>
+          <div class="event-body">
+            <h3>Academy Museum of Motion Pictures</h3>
+            <p class="event-sub">The first large-scale museum in the U.S. dedicated to cinema</p>
+            <div class="event-links">
+              <a href="https://maps.app.goo.gl/f5mMTakTG5Kpuy5FA" target="_blank" class="event-link">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-details">
+          <div class="video-label">🎬 Top performing videos for inspiration</div>
+          <div class="video-row">
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ednygonzalez/video/7692080504098540830" data-video-id="7692080504098540830" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@ednygonzalez/video/7692080504098540830">@ednygonzalez</a></section>
+              </blockquote>
+            </div>
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@d.ruizway/video/7644664624557591821" data-video-id="7644664624557591821" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@d.ruizway/video/7644664624557591821">@d.ruizway</a></section>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lunch-break">
+        <span class="lunch-icon">🍽️</span>
+        <span class="lunch-text">Lunch Break</span>
+        <span class="lunch-time">12:00 – 2:00 PM</span>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-time">
+            <span class="time-label">Afternoon</span>
+            <span class="time-value">2:00 – 4:00 PM</span>
+          </div>
+          <div class="event-body">
+            <h3>Petersen Automotive Museum</h3>
+            <p class="event-sub">World-class automotive museum on the Miracle Mile</p>
+            <div class="event-links">
+              <a href="https://maps.app.goo.gl/nfkSsLBGmaGi5Q9C9" target="_blank" class="event-link">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-details">
+          <div class="video-label">🎬 Top performing videos for inspiration</div>
+          <div class="video-row">
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@margiegotravel/video/7694497719611657485" data-video-id="7694497719611657485" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@margiegotravel/video/7694497719611657485">@margiegotravel</a></section>
+              </blockquote>
+            </div>
+            <div class="video-card">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@thatisamerica/video/7622140082052435214" data-video-id="7622140082052435214" style="max-width: 340px;min-width: 280px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@thatisamerica/video/7622140082052435214">@thatisamerica</a></section>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CREATOR LOOKUP -->
+<section class="lookup-section" id="lookup">
+  <div class="section-label">
+    <span class="num">02</span>
+    <span class="line"></span>
+    <span class="tag">Creator Attendance Lookup</span>
+  </div>
+  <h2>Which days are you attending?</h2>
+  <p class="lede">Enter your TikTok username to find which days you're signed up for. Don't remember your exact handle? Just type a few letters — we'll match it.</p>
+
+  <div class="lookup-wrap">
+    <div class="lookup-input-row">
+      <input type="text" class="lookup-input" id="usernameInput" placeholder="e.g. thecoasterfanman" autocomplete="off" spellcheck="false">
+      <button class="lookup-btn" id="lookupBtn">Find My Days</button>
+    </div>
+    <div class="lookup-result" id="lookupResult"></div>
+  </div>
+</section>
+
+<!-- CREATOR BUDDY-UP -->
+<section class="buddy-section" id="buddy">
+  <div class="section-label">
+    <span class="num">03</span>
+    <span class="line"></span>
+    <span class="tag">Creator Buddy-Up</span>
+  </div>
+  <h2>Who's going when?</h2>
+  <p class="lede">Find your crew for each day. Reach out, coordinate, and create together. Tap a username to visit their TikTok profile.</p>
+
+  <div class="buddy-grid" id="buddyGrid"></div>
+</section>
+
+<!-- CONTENT REQUIREMENTS -->
+<section class="section" id="requirements">
+  <div class="section-label">
+    <span class="num">04</span>
+    <span class="line"></span>
+    <span class="tag">Content Requirement</span>
+  </div>
+  <h2>What to create.</h2>
+  <p class="lede">Each creator is tasked with producing content across the series. Here's what's expected.</p>
+
+  <div class="req-grid">
+    <div class="req-card">
+      <span class="req-num">3×</span>
+      <div class="req-title">TTGO Videos Per POI</div>
+      <p class="req-desc">Create 3 TikTok Go (TTGO) videos for each point of interest you visit. Capture the location, the experience, and the energy.</p>
+      <span class="req-badge">5 POIs · 15 videos total</span>
+    </div>
+    <div class="req-card">
+      <span class="req-num">2×</span>
+      <div class="req-title">Branding Videos</div>
+      <p class="req-desc">Two branding videos as outlined in the briefs below. Stitch challenges with specific creative direction.</p>
+      <span class="req-badge">See branding briefs ↓</span>
+    </div>
+  </div>
+
+  <div class="req-status-bar">
+    <div class="status-icon">📤</div>
+    <div class="status-text"><strong>Tasks open November 5 for posting.</strong> Get your content ready and post during the series.</div>
+  </div>
+
+  <!-- BRANDING VIDEO BRIEFS (merged under Content Requirement) -->
+  <div style="margin-top: 60px;">
+    <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;">Branding Videos</h2>
+    <p class="lede" style="margin-bottom: 40px;">Two stitch-challenge branding videos. Hold up the TikTok Go bear in each frame. Call out "TikTok Go City Series."</p>
+
+    <!-- BRANDING VIDEO 1 -->
+    <div class="branding-card">
+      <div class="branding-header">
+        <span class="branding-tag">Branding Video 1</span>
+        <h3>Stitch Challenge in LA</h3>
+        <p class="branding-sub">A stitch challenge across Los Angeles locations.</p>
+      </div>
+      <div class="branding-body">
+        <ul class="branding-instructions">
+          <li><span class="check">▸</span> <span><strong>Hold up the TikTok Go bear</strong> in each frame of your video.</span></li>
+          <li><span class="check">▸</span> <span><strong>Call out "TikTok Go City Series"</strong> verbally or via text overlay.</span></li>
+          <li><span class="check">▸</span> <span><strong>Stitch challenge format:</strong> Stitch with the reference video and create your own LA version.</span></li>
+        </ul>
+        <div class="branding-videos-title">📺 Reference samples</div>
+        <div class="branding-videos">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@europajaro/video/7679477585742548246" data-video-id="7679477585742548246" style="max-width: 340px;min-width: 280px;">
+            <section><a target="_blank" href="https://www.tiktok.com/@europajaro/video/7679477585742548246">@europajaro</a></section>
+          </blockquote>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@alishamitchumart/video/7523411703359425806" data-video-id="7523411703359425806" style="max-width: 340px;min-width: 280px;">
+            <section><a target="_blank" href="https://www.tiktok.com/@alishamitchumart/video/7523411703359425806">@alishamitchumart</a></section>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRANDING VIDEO 2 -->
+    <div class="branding-card">
+      <div class="branding-header">
+        <span class="branding-tag">Branding Video 2</span>
+        <h3>Stitch Challenge in 1 POI</h3>
+        <p class="branding-sub">A stitch challenge shot at a single point of interest.</p>
+      </div>
+      <div class="branding-body">
+        <ul class="branding-instructions">
+          <li><span class="check">▸</span> <span><strong>Pick one POI</strong> from the series and create a stitch challenge video on location.</span></li>
+          <li><span class="check">▸</span> <span><strong>Call out "TikTok Go City Series"</strong> in your video — text overlay or verbal mention.</span></li>
+          <li><span class="check">▸</span> <span><strong>Stitch with the reference video</strong> and bring your own creative spin at the POI.</span></li>
+        </ul>
+        <div class="branding-videos-title">📺 Reference sample</div>
+        <div class="branding-videos">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jeana_butler/video/7690194415704460574" data-video-id="7690194415704460574" style="max-width: 340px;min-width: 280px;">
+            <section><a target="_blank" href="https://www.tiktok.com/@jeana_butler/video/7690194415704460574">@jeana_butler</a></section>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">LA <span>City</span> Series</div>
+  <div class="footer-tagline">TikTok Go City Series · November 5–7, 2026</div>
+  <div class="footer-date">Built for creators, by creators.</div>
+</footer>
+
+<!-- INTERACTION SCRIPT -->
+<script>
+// ─── Global link handler ───
+// Intercept ALL link clicks to handle both internal and external links
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (!href) return;
+  // Internal anchor links — smooth scroll
+  if (href.startsWith('#') && href.length > 1) {
+    e.preventDefault();
+    e.stopPropagation();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    return;
+  }
+  // External links — ALWAYS open in new tab/window, never same window
+  if (href.startsWith('http://') || href.startsWith('https://')) {
+    e.preventDefault();
+    e.stopPropagation();
+    var win = window.open(href, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      // Popup blocked — create a temporary link and click it with target=_blank
+      var tmpLink = document.createElement('a');
+      tmpLink.href = href;
+      tmpLink.target = '_blank';
+      tmpLink.rel = 'noopener noreferrer';
+      document.body.appendChild(tmpLink);
+      tmpLink.click();
+      document.body.removeChild(tmpLink);
+    }
+    return;
+  }
+}, true);
+
+// ─── TikTok video cards ───
+// Replace all tiktok-embed blockquotes with custom clickable cards
+function buildVideoCard(citeUrl, creatorRaw) {
+  // Strip leading @ from creator text (the <section><a> text already includes @)
+  const creator = creatorRaw.replace(/^@+/, '');
+  const videoIdMatch = citeUrl.match(/video\/(\d+)/);
+  const videoId = videoIdMatch ? videoIdMatch[1] : '';
+  // Use TikTok oembed poster image (more reliable than redir API)
+  const posterUrl = `https://www.tiktok.com/embed/v2/${videoId}`;
+  return `<div class="tt-video-card" data-cite="${citeUrl}" data-video-id="${videoId}">
+    <div class="tt-video-thumb" data-href="${citeUrl}">
+      <div class="tt-thumb-bg"></div>
+      <div class="tt-play-overlay">
+        <div class="tt-play-icon"></div>
+      </div>
+      <div class="tt-video-label">Tap to play</div>
+    </div>
+    <div class="tt-video-footer">
+      <span class="tt-creator">@${creator}</span>
+      <span class="tt-tt-badge">TikTok</span>
+    </div>
+    <iframe class="tt-video-frame" src="" data-src="https://www.tiktok.com/embed/v2/${videoId}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>`;
+}
+
+document.querySelectorAll('blockquote.tiktok-embed').forEach(bq => {
+  const cite = bq.getAttribute('cite') || '';
+  const section = bq.querySelector('section a');
+  const creator = section ? section.textContent.trim() : '';
+  const html = buildVideoCard(cite, creator);
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = html;
+  bq.replaceWith(wrapper.firstElementChild);
+});
+
+// Make TikTok video cards playable: click loads iframe embed
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('.tt-video-card');
+  if (!card) return;
+  // If iframe already has a src, let it handle the click
+  const iframe = card.querySelector('.tt-video-frame');
+  const thumb = card.querySelector('.tt-video-thumb');
+  if (iframe && thumb && thumb.contains(e.target)) {
+    e.preventDefault();
+    e.stopPropagation();
+    const src = iframe.getAttribute('data-src');
+    if (src && !iframe.getAttribute('src')) {
+      iframe.setAttribute('src', src);
+      iframe.style.display = 'block';
+      thumb.style.display = 'none';
+    }
+    return;
+  }
+  // Click on the footer — open TikTok link in new tab
+  const cite = card.getAttribute('data-cite');
+  if (cite && e.target.closest('.tt-video-footer')) {
+    e.preventDefault();
+    e.stopPropagation();
+    var win = window.open(cite, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      var tmpLink = document.createElement('a');
+      tmpLink.href = cite;
+      tmpLink.target = '_blank';
+      tmpLink.rel = 'noopener noreferrer';
+      document.body.appendChild(tmpLink);
+      tmpLink.click();
+      document.body.removeChild(tmpLink);
+    }
+  }
+}, true);
+
+// Creator attendance data from Feishu sheet (attendance tab)
+// Nov 6 is split: some creators go to Bubble Planet, some to Pirates Dinner, some to both
+const creators = [
+  { username: "heraudacity2travel", name: "Safia Reed", lvl: 4, tiktokUrl: "https://www.tiktok.com/@heraudacity2travel", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: true } },
+  { username: "naturecallsmehome", name: "Ruby Islas", lvl: 3, tiktokUrl: "https://www.tiktok.com/@naturecallsmehome", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "charrtheexplorer", name: "Charissa Alabanza", lvl: 3, tiktokUrl: "https://www.tiktok.com/@charrtheexplorer", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "cianasingh", name: "Ciana Singh", lvl: 3, tiktokUrl: "https://www.tiktok.com/@cianasingh", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "savnmifambiz", name: "Karla Lozano", lvl: 3, tiktokUrl: "https://www.tiktok.com/@savnmifambiz", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "byvanessadaily", name: "Vanessa Wyatt", lvl: 2, tiktokUrl: "https://www.tiktok.com/@byvanessadaily", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
+  { username: "yourauntietay", name: "Taybele Piven", lvl: 2, tiktokUrl: "https://www.tiktok.com/@yourauntietay", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "thecoasterfanman", name: "Charles George", lvl: 2, tiktokUrl: "https://www.tiktok.com/@thecoasterfanman", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
+  { username: "lyndsielocks", name: "Lyndsie Oubre", lvl: 2, tiktokUrl: "https://www.tiktok.com/@lyndsielocks", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: false } },
+  { username: "itsjackytravels", name: "Jacqueline Rocha", lvl: 2, tiktokUrl: "https://www.tiktok.com/@itsjackytravels", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "morgangetaways", name: "Morgan Bryant", lvl: 2, tiktokUrl: "https://www.tiktok.com/@morgangetaways", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "lilimari1_usa", name: "Lilibeth Bracamonte", lvl: 2, tiktokUrl: "https://www.tiktok.com/@lilimari1_usa", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "itsgenise", name: "Genise She", lvl: 2, tiktokUrl: "https://www.tiktok.com/@itsgenise", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "emmexplorer", name: "Emma Kniffen", lvl: 2, tiktokUrl: "https://www.tiktok.com/@emmexplorer", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "recomiendodestinos", name: "Michelly Mendoza", lvl: 2, tiktokUrl: "https://www.tiktok.com/@recomiendodestinos", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "charisa_sweetheart", name: "Charisa Sigala", lvl: 2, tiktokUrl: "https://www.tiktok.com/@charisa_sweetheart", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
+  { username: "Nairobiblack", name: "Mary Neville", lvl: 1, tiktokUrl: "https://www.tiktok.com/@Nairobiblack", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "mcq_heatherexplores", name: "Heather McHugh", lvl: 1, tiktokUrl: "https://www.tiktok.com/@mcq_heatherexplores", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "ara_adondeandas", name: "Araceli Burgos", lvl: 1, tiktokUrl: "https://www.tiktok.com/@ara_adondeandas", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "msscrafty", name: "Shontelle Swanson/Sauls", lvl: 1, tiktokUrl: "https://www.tiktok.com/@msscrafty", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "cinthiaisoutside", name: "Cinthia Pineda", lvl: 1, tiktokUrl: "https://www.tiktok.com/@cinthiaisoutside", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "lifethroughbri", name: "Brianna Elder", lvl: 1, tiktokUrl: "https://www.tiktok.com/@lifethroughbri", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "lifewithgabby15", name: "Gabriela Lopez", lvl: 1, tiktokUrl: "https://www.tiktok.com/@lifewithgabby15", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: true } },
+  { username: "loreesro", name: "Patricia Acosta", lvl: 1, tiktokUrl: "https://www.tiktok.com/@loreesro", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "travelwithnature4", name: "Stephanie Ruiz", lvl: 1, tiktokUrl: "https://www.tiktok.com/@travelwithnature4", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: true } },
+  { username: "nicsoofancy", name: "Nicole Jones", lvl: 1, tiktokUrl: "https://www.tiktok.com/@nicsoofancy", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "thecozylilac", name: "Regina Isabel De La Cruz", lvl: 3, tiktokUrl: "https://www.tiktok.com/@thecozylilac", days: { nov5: false, nov6Bubble: false, nov6Pirates: false, nov7: true } },
+  { username: "Jacquelinee.ruiz", name: "Jacqueline Ruiz", lvl: 2, tiktokUrl: "https://www.tiktok.com/@Jacquelinee.ruiz", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "Bybeabravo", name: "Beatriz Bravo", lvl: 2, tiktokUrl: "https://www.tiktok.com/@Bybeabravo", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "tara_lax", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@tara_lax", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "jenna.wea", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@jenna.wea", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "bidibidibombom", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@bidibidibombom", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "cvargas615", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@cvargas615", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "sandra_on_the_go", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@sandra_on_the_go", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "korenajo", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@korenajo", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "planwithzak", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@planwithzak", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "themodernanne", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@themodernanne", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "icookutry", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@icookutry", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "somethinggood341", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@somethinggood341", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+];
+
+// Day tabs
+document.querySelectorAll('.day-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const day = tab.dataset.day;
+    document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.day-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`.day-content[data-day="${day}"]`).classList.add('active');
+  });
+});
+
+// Creator lookup
+const input = document.getElementById('usernameInput');
+const btn = document.getElementById('lookupBtn');
+const result = document.getElementById('lookupResult');
+
+function lookup() {
+  const query = input.value.trim().toLowerCase().replace(/^@/, '');
+  if (!query) {
+    result.innerHTML = '<p style="color:rgba(247,241,232,0.4);font-size:14px;">Enter your TikTok username to search.</p>';
+    return;
+  }
+
+  // Try exact match first, then partial
+  let match = creators.find(c => c.username.toLowerCase() === query);
+  if (!match) {
+    const partials = creators.filter(c => c.username.toLowerCase().includes(query));
+    if (partials.length === 1) {
+      match = partials[0];
+    } else if (partials.length > 1) {
+      result.innerHTML = `
+        <div class="result-card">
+          <p style="font-size:14px;color:rgba(247,241,232,0.7);margin-bottom:16px;">Multiple creators matched "${input.value}". Did you mean:</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${partials.map(c => `
+              <button onclick="selectCreator('${c.username}')" style="text-align:left;padding:12px 16px;background:rgba(247,241,232,0.06);border:1px solid rgba(247,241,232,0.12);border-radius:10px;color:#F7F1E8;font-family:'Sora',sans-serif;font-size:14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(247,241,232,0.12)'" onmouseout="this.style.background='rgba(247,241,232,0.06)'">
+                <span style="color:#F2A93B;">@${c.username}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>`;
+      return;
+    }
+  }
+
+  if (match) {
+    renderResult(match);
+  } else {
+    result.innerHTML = `
+      <div class="result-not-found">
+        No creator found for <strong>"${input.value}"</strong>. Try checking your spelling or search by part of your username. If you're not on the list, contact the LA City Series team.
+      </div>`;
+  }
+}
+
+function selectCreator(username) {
+  input.value = username;
+  const match = creators.find(c => c.username === username);
+  if (match) renderResult(match);
+}
+
+function renderResult(c) {
+  const dayInfo = [
+    { key: 'nov5', label: 'Nov 5 · Thu', pois: 'Universal Studios Hollywood', time: 'Starts 11:00 AM' },
+    { key: 'nov6Bubble', label: 'Nov 6 · Fri — Bubble Planet', pois: 'Immersive art experience in DTLA', time: '12:30 – 2:30 PM' },
+    { key: 'nov6Pirates', label: 'Nov 6 · Fri — Pirates Dinner', pois: 'Interactive dinner show', time: '7:00 PM' },
+    { key: 'nov7', label: 'Nov 7 · Sat', pois: 'Academy Museum + Petersen Automotive Museum', time: '10:00 AM – 4:00 PM' },
+  ];
+
+  result.innerHTML = `
+    <div class="result-card">
+      <div class="result-name">@${c.username}</div>
+      <div class="result-days">
+        ${dayInfo.map(d => `
+          <div class="result-day ${c.days[d.key] ? 'attending' : 'not-attending'}">
+            <span class="day-label">${d.label}</span>
+            ${c.days[d.key] ? `<span class="day-pois">${d.pois}</span><span class="day-status">${d.time}</span>` : '<span class="day-status">Not attending</span>'}
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+}
+
+btn.addEventListener('click', lookup);
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') lookup();
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Buddy-up: render full attendance breakdown by day
+// Nov 6 is split into Bubble Planet and Pirates Dinner groups
+const buddyDays = [
+  { key: 'nov5', num: '01', title: 'Nov 5 · Thu', pois: 'Universal Studios Hollywood' },
+  { key: 'nov6Bubble', num: '02a', title: 'Nov 6 · Fri — Bubble Planet', pois: 'Immersive art experience in DTLA' },
+  { key: 'nov6Pirates', num: '02b', title: 'Nov 6 · Fri — Pirates Dinner', pois: 'Interactive dinner show' },
+  { key: 'nov7', num: '03', title: 'Nov 7 · Sat', pois: 'Academy Museum + Petersen Automotive Museum' },
+];
+
+const buddyGrid = document.getElementById('buddyGrid');
+buddyGrid.innerHTML = buddyDays.map(day => {
+  const attending = creators
+    .filter(c => c.days[day.key])
+    .sort((a, b) => a.username.toLowerCase().localeCompare(b.username.toLowerCase()));
+  return `
+    <div class="buddy-day-card">
+      <div class="buddy-day-header">
+        <span class="buddy-day-num">${day.num}</span>
+        <span class="buddy-day-title">${day.title}</span>
+      </div>
+      <div class="buddy-day-pois">${day.pois}</div>
+      <div class="buddy-creators">
+        ${attending.map(c => `<a class="buddy-creator" href="${c.tiktokUrl}" target="_blank" rel="noopener noreferrer">@${c.username}</a>`).join('')}
+      </div>
+    </div>`;
+}).join('');
+</script>
+
+</body>
+</html>

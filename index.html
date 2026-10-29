@@ -1538,7 +1538,7 @@ document.addEventListener('click', function(e) {
 // Creator attendance data from Feishu sheet (attendance tab)
 // Nov 6 is split: some creators go to Bubble Planet, some to Pirates Dinner, some to both
 const creators = [
-  { username: "heraudacity2travel", name: "Safia Reed", lvl: 4, tiktokUrl: "https://www.tiktok.com/@heraudacity2travel", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: true } },
+  { username: "heraudacity2travel", name: "Safia Reed", lvl: 4, tiktokUrl: "https://www.tiktok.com/@heraudacity2travel", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: false } },
   { username: "naturecallsmehome", name: "Ruby Islas", lvl: 3, tiktokUrl: "https://www.tiktok.com/@naturecallsmehome", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
   { username: "charrtheexplorer", name: "Charissa Alabanza", lvl: 3, tiktokUrl: "https://www.tiktok.com/@charrtheexplorer", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
   { username: "cianasingh", name: "Ciana Singh", lvl: 3, tiktokUrl: "https://www.tiktok.com/@cianasingh", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
@@ -1546,12 +1546,12 @@ const creators = [
   { username: "byvanessadaily", name: "Vanessa Wyatt", lvl: 2, tiktokUrl: "https://www.tiktok.com/@byvanessadaily", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
   { username: "yourauntietay", name: "Taybele Piven", lvl: 2, tiktokUrl: "https://www.tiktok.com/@yourauntietay", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
   { username: "thecoasterfanman", name: "Charles George", lvl: 2, tiktokUrl: "https://www.tiktok.com/@thecoasterfanman", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
-  { username: "lyndsielocks", name: "Lyndsie Oubre", lvl: 2, tiktokUrl: "https://www.tiktok.com/@lyndsielocks", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: false } },
+  { username: "lyndsielocks", name: "Lyndsie Oubre", lvl: 2, tiktokUrl: "https://www.tiktok.com/@lyndsielocks", days: { nov5: false, nov6Bubble: false, nov6Pirates: false, nov7: true } },
   { username: "itsjackytravels", name: "Jacqueline Rocha", lvl: 2, tiktokUrl: "https://www.tiktok.com/@itsjackytravels", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
   { username: "morgangetaways", name: "Morgan Bryant", lvl: 2, tiktokUrl: "https://www.tiktok.com/@morgangetaways", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
   { username: "lilimari1_usa", name: "Lilibeth Bracamonte", lvl: 2, tiktokUrl: "https://www.tiktok.com/@lilimari1_usa", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
   { username: "itsgenise", name: "Genise She", lvl: 2, tiktokUrl: "https://www.tiktok.com/@itsgenise", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
-  { username: "emmexplorer", name: "Emma Kniffen", lvl: 2, tiktokUrl: "https://www.tiktok.com/@emmexplorer", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
+  { username: "emmexplorer", name: "Emma Kniffen", lvl: 2, tiktokUrl: "https://www.tiktok.com/@emmexplorer", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
   { username: "recomiendodestinos", name: "Michelly Mendoza", lvl: 2, tiktokUrl: "https://www.tiktok.com/@recomiendodestinos", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
   { username: "charisa_sweetheart", name: "Charisa Sigala", lvl: 2, tiktokUrl: "https://www.tiktok.com/@charisa_sweetheart", days: { nov5: true, nov6Bubble: false, nov6Pirates: true, nov7: true } },
   { username: "Nairobiblack", name: "Mary Neville", lvl: 1, tiktokUrl: "https://www.tiktok.com/@Nairobiblack", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
@@ -1560,7 +1560,7 @@ const creators = [
   { username: "msscrafty", name: "Shontelle Swanson/Sauls", lvl: 1, tiktokUrl: "https://www.tiktok.com/@msscrafty", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: false } },
   { username: "cinthiaisoutside", name: "Cinthia Pineda", lvl: 1, tiktokUrl: "https://www.tiktok.com/@cinthiaisoutside", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: true } },
   { username: "lifethroughbri", name: "Brianna Elder", lvl: 1, tiktokUrl: "https://www.tiktok.com/@lifethroughbri", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
-  { username: "lifewithgabby15", name: "Gabriela Lopez", lvl: 1, tiktokUrl: "https://www.tiktok.com/@lifewithgabby15", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: true } },
+  { username: "lifewithgabby15", name: "Gabriela Lopez", lvl: 1, tiktokUrl: "https://www.tiktok.com/@lifewithgabby15", days: { nov5: false, nov6Bubble: true, nov6Pirates: false, nov7: true } },
   { username: "loreesro", name: "Patricia Acosta", lvl: 1, tiktokUrl: "https://www.tiktok.com/@loreesro", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
   { username: "travelwithnature4", name: "Stephanie Ruiz", lvl: 1, tiktokUrl: "https://www.tiktok.com/@travelwithnature4", days: { nov5: true, nov6Bubble: false, nov6Pirates: false, nov7: true } },
   { username: "nicsoofancy", name: "Nicole Jones", lvl: 1, tiktokUrl: "https://www.tiktok.com/@nicsoofancy", days: { nov5: true, nov6Bubble: true, nov6Pirates: true, nov7: true } },
@@ -1577,7 +1577,8 @@ const creators = [
   { username: "themodernanne", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@themodernanne", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
   { username: "icookutry", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@icookutry", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
   { username: "somethinggood341", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@somethinggood341", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
-  { username: "cambriafrancesca", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@cambriafrancesca", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: false } },
+  { username: "cambriafrancesca", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@cambriafrancesca", days: { nov5: false, nov6Bubble: true, nov6Pirates: true, nov7: false } },
+  { username: "rachelescapes", name: "", lvl: 0, tiktokUrl: "https://www.tiktok.com/@rachelescapes", days: { nov5: false, nov6Bubble: false, nov6Pirates: true, nov7: true } },
 ];
 
 // Day tabs
